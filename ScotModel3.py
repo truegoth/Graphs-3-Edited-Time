@@ -20,9 +20,9 @@ plt.style.use('bmh')
 tickers= ['ADA-USD']
 start=st.date_input('start', value=pd.to_datetime('2022-09-14'))
 end=st.date_input('end', value=pd.to_datetime('2022-09-15'))
-data=yf.download(tickers,start=start, end=end, interval='1h')
-High=yf.download(tickers,start=start, end=end, interval='1h')
-df=yf.download(tickers,start=start, end=end, interval='1h')
+data=yf.download(tickers,start=start, end=end, interval='1min')
+High=yf.download(tickers,start=start, end=end, interval='1min')
+df=yf.download(tickers,start=start, end=end, interval='1min')
 
 
 # In[ ]:
@@ -164,7 +164,7 @@ last=df['Datetime'].iloc[-1]
 ##See all the predictions
 predictions=pd.DataFrame(scaler.inverse_transform(lst_output))
 predictions.columns=['Low']
-predictions['Datetime'] = pd.date_range(start= last , periods=len(predictions), freq='hour')
+predictions['Datetime'] = pd.date_range(start= last , periods=len(predictions), freq='min')
 predictions
 
 df2=df[['Datetime', 'Low']]
