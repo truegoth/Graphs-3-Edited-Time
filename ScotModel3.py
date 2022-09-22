@@ -19,10 +19,10 @@ plt.style.use('bmh')
 
 tickers= ['ADA-USD']
 start=st.date_input('start', value=pd.to_datetime('2022-09-14'))
-end=st.date_input('end', value=pd.to_datetime('2022-09-15'))
-data=yf.download(tickers,start=start, end=end, interval='1m')
-High=yf.download(tickers,start=start, end=end, interval='1m')
-df=yf.download(tickers,start=start, end=end, interval='1m')
+end=st.date_input('end', value=pd.to_datetime('2022-09-17'))
+data=yf.download(tickers,start=start, end=end, interval='6m')
+High=yf.download(tickers,start=start, end=end, interval='6m')
+df=yf.download(tickers,start=start, end=end, interval='6m')
 
 
 # In[ ]:
